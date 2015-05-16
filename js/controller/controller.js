@@ -1,7 +1,15 @@
 //connect soket
 var socket = io.connect(location.origin);
 
-var name = 'none'
+var STAGE = {
+	INIT : 0,
+	FIRST : 1,
+	SECOND : 2,
+};
+
+var stg = STAGE.INIT;
+var name = 'none';
+
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
@@ -16,37 +24,19 @@ function accelFlag(x){
     return false;
 }
 
-var acF = false;
-
-window.addEventListener("devicemotion", function(event1){
-    var x = event1.acceleration.x;
-    var y = event1.acceleration.y;
-    var z = event1.acceleration.z;
-
-    var result1 = document.getElementById("result1");
-    var result2 = document.getElementById("result2");
-
-//    var name = document.getElementById("id_box").value
-
-    result1.innerHTML =
-        "xyz："+ calcEval(x,y,z) +"<br>";
-
-    result2.innerHTML =
-        calcEval(x,y,z);
-
-    if (accelFlag(x) || acF){
-        result2.innerHTML = "<div id='okBox'></div><br>";
+function sordAcction(x){
+    if (accelFlag(x)){
 		    socket.emit("sendAtk", name + "," +Math.random()*4);
-            socket.emit("shakeTrue", true);
-    }else{
-        result2.innerHTML = "<div id='badBox'></div><br>";
     }
+}
 
-    document.getElementById("result3").innerHTML = "Name:" + name;
+function shakeAcction(x){
+    if (accelFlag(x)){
+        socket.emit("shakeTrue", true);
+    }
+}
 
-}, true);
-
-function getdata(){
+function loadGet(){
     if(window.location.search){
         var dataList = window.location.search.substring(1,window.location.search.length).split("&")
 
@@ -61,11 +51,72 @@ function getdata(){
 
     }
 }
-/* オンロード時に実行 */
-window.onload = getdata;
 
+function putAccelNum(x,y,z){
+    document.getElementById("accelNum").innerHTML =
+        "Accel："+ calcEval(x,y,z) +"<br>";
+}
 
-function delete_form(frm){
-    frm.elements["id_btn"].style.display="none";
-    frm.elements["id_box"].style.display="none";
+function putAccelPanel(x,y,z){
+    if (accelFlag(x)){
+        document.getElementById("accelPanel").innerHTML =
+            "<div id='redBox'></div><br>";
+    }else{
+        document.getElementById("accelPanel").innerHTML =
+            "<div id='blueBox'></div><br>";
+    }
+
+}
+
+function stgCtr(){
+	if(stg == STAGE.INIT){
+		//shake iphone!
+ 		if(shake == shakeNum)stg = STAGE.FIRST;
+	}
+	else if(stg == STAGE.FIRST){
+		firstStage();
+	} else if (stg == STAGE.SECOND){
+		console.log("secnod stage");
+	}
+}
+
+window.addEventListener("devicemotion", function(event){
+    var x = event.acceleration.x;
+    var y = event.acceleration.y;
+    var z = event.acceleration.z;
+
+    // set Accel Num and Panel for Debug
+    putAccelNum(x,y,z);
+    putAccelPanel(x,y,z);
+
+    // Acction
+		if(stg == STAGE.INIT){
+        shakeAcction(x);
+		}else{
+        sordAcction(x);
+    }
+
+}, true);
+
+window.onload = function (){
+    // num of shake
+	  socket.on("shakeNum",function(data){
+		    if(stg == STAGE.INIT){
+            document.getElementById("shakeNum").innerHTML =
+                "shakeNum:" + data + "<br>";
+		    }
+	  });
+
+    // load Get data
+    loadGet();
+
+    // put user name for Debug
+    document.getElementById("name").innerHTML = "Name:" + name;
+
+    // set Accel Num and Panel for Debug
+    putAccelNum();
+    putAccelPanel();
+
+    // stage controller
+	  setInterval("stgCtr()",50);
 }
