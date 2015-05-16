@@ -1,0 +1,1 @@
+var monAtk = 10;
