@@ -2,13 +2,27 @@
 var http = require("http");
 var fs = require("fs");
 var path = require("path");
+var qs = require('querystring');
 var server = http.createServer(requestListener);
 server.listen((process.env.PORT || 5000), function() {
     console.log((process.env.PORT || 5000) + "番でサーバ起動");
 });
 
+
+var POST = false;
+
 //request server
 function requestListener(req, res) {
+    if(req.method=='POST') {
+           var body='';
+           req.on('data', function (data) {
+               body +=data;
+           });
+           req.on('end',function(){
+                POST =  qs.parse(body);
+                //console.log(POST);
+            });
+   }
     //request file
     var reqURL = req.url;
     //get expand
@@ -57,6 +71,11 @@ function readFileHandler(fileName, contentType, isBinary, response) {
                     response.statusCode = 200;
                     response.setHeader("Content-Type", contentType);
                     if(!isBinary) {
+                        if(POST){
+                            data = data.replace("var name = 'none';", "var name = '"+POST["name_box"]+"';");
+                            console.log(data);
+                            //data = POST + data;
+                        }
                         response.end(data);
                     } else {
                         response.end(data, "binary");
