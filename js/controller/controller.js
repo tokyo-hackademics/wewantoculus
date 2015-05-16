@@ -1,5 +1,5 @@
 //connect OAOAAOAsocket
-// var socket = io.connect(location.origin);
+var socket = io.connect(location.origin);
 
 $(function(){
 	$("#main").click(function(){
@@ -55,4 +55,3 @@ function delete_form(frm){
     frm.elements["id_btn"].style.display="none";
     frm.elements["id_box"].style.display="none";
 }
-OB
