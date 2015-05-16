@@ -10,7 +10,7 @@ var userAtk = 10;
 var timeLimit = 5;
 
 //controller
-var shakeNum = 100;
+var shakeNum = 20;
 
 //elements
 var ELEMENTS = {

@@ -35,7 +35,10 @@ window.onload = function (){
 function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
- 		if(shake == shakeNum)stg = STAGE.FIRST;
+ 		if(shake >= shakeNum){
+ 			delPrepareDisplay();
+ 			stg = STAGE.FIRST;
+ 		}
 	}
 	else if(stg == STAGE.FIRST){
 		firstStage();
