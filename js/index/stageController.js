@@ -12,10 +12,30 @@ var PHASE = {
 
 var stg = STAGE.INIT;
 var phs = PHASE.CHARGE;
+var shake = 0;
+
+window.onload = function (){
+	//shake smartphone
+	socket.on("shake",function(data){
+		if(stg == STAGE.INIT){
+			shake++;
+			console.log(shake);
+			socket.emit("shakeNum", shake);
+		}		
+	});
+	//user's atack
+	socket.on("userAtk",function(data){
+		if(stg == STAGE.FIRST){
+			var array = data.split(",");
+			switchElement(array[1]);
+		}		
+	});
+}
 
 function stgCtr(){
 	if(stg == STAGE.INIT){
-		stg = STAGE.FIRST;
+		//shake iphone!
+ 		if(shake == shakeNum)stg = STAGE.FIRST;
 	}
 	else if(stg == STAGE.FIRST){
 		firstStage();

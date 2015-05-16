@@ -43,6 +43,7 @@ window.addEventListener("devicemotion", function(event1){
     if (accelFlag(x) || acF){
         result2.innerHTML = "<div id='okBox'></div><br>";
 		    socket.emit("sendAtk", name + "," +Math.random()*4);
+            socket.emit("shakeTrue", true);
     }else{
         result2.innerHTML = "<div id='badBox'></div><br>";
     }

@@ -9,6 +9,9 @@ var userAtk = 10;
 //timer
 var timeLimit = 5;
 
+//controller
+var shakeNum = 100;
+
 //elements
 var ELEMENTS = {
 	H : 0,

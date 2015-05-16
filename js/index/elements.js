@@ -12,32 +12,29 @@ var o = 0;
 var hho = 0;
 var hhsoooo = 0;
 
-window.onload = function(){
-	socket.on("userAtk",function(data){
-		var array = data.split(",");
-		console.log(array[0]);
-		//console.log(parseInt(array[1]));
-		//count elements
-		switch(parseInt(array[1])){
-			case ELEMENTS.H:
-				h++;
-				break;
-			case ELEMENTS.S:
-				s++;
-				break;
-			case ELEMENTS.C:
-				c++;
-				break;
-			case ELEMENTS.O:
-				o++;
-				break;
-			default:
-				break;
-		}
-		str = str + "い"
-		$("#str").html(str);
-	});
-};
+
+function switchElement(element){
+	console.log(parseInt(element));
+	//count elements
+	switch(parseInt(element)){
+		case ELEMENTS.H:
+			h++;
+			break;
+		case ELEMENTS.S:
+			s++;
+			break;
+		case ELEMENTS.C:
+			c++;
+			break;
+		case ELEMENTS.O:
+			o++;
+			break;
+		default:
+			break;
+	}
+	str = str + "い"
+	$("#str").html(str);
+}
 
 //creating compound
 function createCompound(){

@@ -79,7 +79,17 @@ var io = socketIO.listen(server);
 
 //watching server
 io.sockets.on("connection", function(socket) {
-	//tap event
+    //shaking smartphone
+    socket.on("shakeTrue", function(data) {
+        console.log("shake:" + data);
+        socket.broadcast.emit("shake", data);
+    });
+    //send shaking number
+    socket.on("shakeNum", function(data) {
+        console.log("shake num:" + data);
+        socket.broadcast.emit("sNum", data);
+    });
+	//user atack event
 	socket.on("sendAtk", function(data) {
 		console.log("push");
         console.log(data);
