@@ -1,9 +1,68 @@
-#main{
-	margin: auto auto;
+*{
+	margin: 0;
+	padding:0;
+}
+
+html, body{
+	margin: 0; 
+	padding: 0;
+	width:100%;
+	height:100%;
+}
+
+#content{
+	width:1400px;
+	height:868px;
 	background-image:url("../images/index/01.jpg");
-	background-size:100% 100%;
-	width: 640px;
-	height: 480px;
+	background-repeat:no-repeat;
+	background-size:cover;
+	
+	margin: 0 auto;
+	background-color:#000;	
+	background-position: center center;
+
+}
+
+#prepare{
+	position:relative;
+	top:250px;
+	background-color:transparent;
+	text-align:center;
+	font-size:80px;
+	-webkit-animation:prepare 1.0s ease-in-out infinite alternate;
+    -moz-animation:prepare 1.0s ease-in-out infinite alternate;
+    animation:prepare 1.0s ease-in-out infinite alternate;
+}
+@-webkit-keyframes prepare{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes prepare{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes prepare{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+#shake{
+	position:fixed;
+	top:0px;
+	background-color: white;
+	opacity: 0.4;
+	width: 100%;
+	height: 740px;
+}
+
+
+#main{
+	position:fixed;
+	background-image:url("../images/index/01.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+	width: 100%;
+	height: 740px;
 	background-color: red;
 }
 
