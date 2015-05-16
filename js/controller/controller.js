@@ -1,5 +1,5 @@
 //connect soket
-// var socket = io.connect(location.origin);
+var socket = io.connect(location.origin);
 
 var name = 'none'
 
