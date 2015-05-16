@@ -1,12 +1,6 @@
 //connect OAOAAOAsocket
 var socket = io.connect(location.origin);
 
-// 加速度の閾値
-var accleThresh = 15.0;
-
-//name string
-var name = "Taro";
-
 $(function(){
 	$("#main").click(function(){
 		//send server
@@ -36,6 +30,9 @@ window.addEventListener("devicemotion", function(event1){
 
     var result1 = document.getElementById("result1");
     var result2 = document.getElementById("result2");
+    var result3 = document.getElementById("result3");
+
+    var name = document.getElementById("id_box").value
 
     result1.innerHTML =
         "xyz："+ calcEval(x,y,z) +"<br>";
