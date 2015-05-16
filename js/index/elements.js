@@ -9,10 +9,16 @@ var s = 0;
 var c = 0;
 var o = 0;
 
+var hho = 0;
+var hhsoooo = 0;
+
 window.onload = function(){
 	socket.on("userAtk",function(data){
+		var array = data.split(",");
+		console.log(array[0]);
+		//console.log(parseInt(array[1]));
 		//count elements
-		switch(data){
+		switch(parseInt(array[1])){
 			case ELEMENTS.H:
 				h++;
 				break;
@@ -28,12 +34,47 @@ window.onload = function(){
 			default:
 				break;
 		}
-		
-		console.log(s);
 		str = str + "い"
 		$("#str").html(str);
 	});
 };
+
+//creating compound
+function createCompound(){
+	var flg = false;
+	while(true){
+		if(h >= 2 && s >=1 && o>=4) { //H2SO4
+			hhsoooo++;
+			h -= 2;
+			s -= 1;
+			o -= 4;
+		} else if (h >=2 && o) { //H2O
+			hho++;
+			h -= 2;
+			o -= 1;
+		}else {
+			flg = true;
+		}
+		if(flg)break;
+	}
+}
+
+function calcDamage(){
+	var dmg = 0;
+	dmg += hhsoooo * 3;
+	dmg += hho * 2;
+	if(c>5) {
+		dmg += c*3;
+	} else {
+		dmg += c*2;
+	}
+	//log
+	console.log("H2SO4:"+hhsoooo);
+	console.log("H2O:"+hho);
+	console.log("c:"+c);
+	console.log("dmg:"+dmg);
+	return dmg;
+}
 
 //init elements
 function initElements(){
@@ -41,11 +82,14 @@ function initElements(){
 	s = 0;
 	c = 0;
 	o = 0;
+	hho = 0;
+	hhsoooo = 0;
 }
 //return damage
 function returnDamage(){
 	var dmg;
-	dmg = s;
+	createCompound();
+	dmg = calcDamage();
 	initElements();
 	return dmg;
 }
