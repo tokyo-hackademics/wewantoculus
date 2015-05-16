@@ -36,7 +36,7 @@ function requestListener(req, res) {
             break;
         default:
             //else
-            readFileHandler("/index.html", "text/html", false, res);
+            readFileHandler("/controller.html?name=taro&weapon=weapon1", "text/html", false, res);
             break;
     }
 }
