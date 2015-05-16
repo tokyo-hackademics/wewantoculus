@@ -5,7 +5,7 @@ var socket = io.connect(location.origin);
 var str = "い";
 window.onload = function(){
 	socket.on("down",function(data){
-		console.log("hoge");
+		console.log(data);
 		str = str + "い"
 		$("#main").html(str);
 	});

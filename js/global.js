@@ -8,3 +8,11 @@ var userAtk = 10;
 
 //timer
 var timeLimit = 5;
+
+//elements
+var ELEMENTS = {
+	H : 0,
+	S : 1,
+	C : 2,
+	O : 3,
+};
