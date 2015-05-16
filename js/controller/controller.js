@@ -1,12 +1,7 @@
-//connect OAOAAOAsocket
+//connect soket
 // var socket = io.connect(location.origin);
 
-$(function(){
-	$("#main").click(function(){
-		//send server
-		socket.emit("tapDown", 1);
-	});
-});
+var name = 'none'
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
@@ -30,9 +25,8 @@ window.addEventListener("devicemotion", function(event1){
 
     var result1 = document.getElementById("result1");
     var result2 = document.getElementById("result2");
-    var result3 = document.getElementById("result3");
 
-    var name = document.getElementById("id_box").value
+//    var name = document.getElementById("id_box").value
 
     result1.innerHTML =
         "xyz："+ calcEval(x,y,z) +"<br>";
@@ -47,12 +41,30 @@ window.addEventListener("devicemotion", function(event1){
         result2.innerHTML = "<div id='badBox'></div><br>";
     }
 
+    document.getElementById("result3").innerHTML = "Name:" + name;
 
 }, true);
+
+function getdata(){
+    if(window.location.search){
+        var dataList = window.location.search.substring(1,window.location.search.length).split("&")
+
+        for (var i = 0; i < dataList.length; i++) {
+            key = dataList[i].split("=")[0]
+            value = dataList[i].split("=")[1]
+
+            if(key == 'name'){
+                name = value
+            }
+        }
+
+    }
+}
+/* オンロード時に実行 */
+window.onload = getdata;
 
 
 function delete_form(frm){
     frm.elements["id_btn"].style.display="none";
     frm.elements["id_box"].style.display="none";
 }
-OB
