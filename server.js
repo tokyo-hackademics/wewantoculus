@@ -72,9 +72,9 @@ function readFileHandler(fileName, contentType, isBinary, response) {
                     response.setHeader("Content-Type", contentType);
                     if(!isBinary) {
                         if(POST){
+                            //replaece html data
                             data = data.replace("var name = 'none';", "var name = '"+POST["name_box"]+"';");
-                            console.log(data);
-                            //data = POST + data;
+                            //console.log(data);
                         }
                         response.end(data);
                     } else {

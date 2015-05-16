@@ -68,12 +68,12 @@ function putAccelPanel(x,y,z){
 
 }
 
-function stgCtr(){
+/*function stgCtr(){
 	if(stg == STAGE.INIT){
 	}
 	else{
 	}
-}
+}*/
 
 window.addEventListener("devicemotion", function(event){
     var x = event.acceleration.x;
@@ -96,10 +96,19 @@ window.addEventListener("devicemotion", function(event){
 window.onload = function (){
     // num of shake
 	  socket.on("sNum",function(data){
-		    if(stg == STAGE.INIT){
+		    //if(stg == STAGE.INIT){
             document.getElementById("shakeNum").innerHTML =
                 "shakeNum:" + data + "<br>";
-		    }
+		    //}
+            /**ここからやのコード**/
+            //meter animation
+            var per = data/shakeNum*100;
+            $("#meterImg").animate({
+                width: "100%",
+                height: per+"%",
+                bottom: 0,
+            }, 100 );
+            /**ここまで**/   
 	  });
 
     // load Get data
