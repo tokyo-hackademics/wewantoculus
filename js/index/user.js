@@ -1,4 +1,4 @@
-function userAtk(){
-	monHP -= monHP - userAtk;
-	$("#monHP").html(monHP);
+function userAtkTurn(){
+	mon1HP = mon1HP - userAtk;
+	$("#monHP").html(mon1HP);
 }

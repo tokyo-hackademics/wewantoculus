@@ -1,25 +1,27 @@
 var timeStart = 0;
 var time = timeLimit;
+var timer;
 
-window.onload = function() {
-	startTimer();
-}
+startTimer();
 
 function startTimer(){
-	setInterval("showTimer()",1000);
+	timer = setInterval("atkTimer()",1000);
 }
 
-function showTimer(){
+function stopTimer(){
+	clearInterval(timer);
+	time = timeLimit;
+}
+
+function atkTimer(){
 	$("#timer").html(time);
 	time -= 1;
-	if(time==-1){//time lmit!!!
-		//user's atack
-		userAtk();
-
-		//monster's atack
-
-
+	if(time<0){
 		//next turn
-		time = timeLimit;
+		time = 0;
 	}
+}
+
+function numTimer(){
+	return time;
 }
