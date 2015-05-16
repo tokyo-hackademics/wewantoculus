@@ -82,6 +82,7 @@ io.sockets.on("connection", function(socket) {
 	//tap event
 	socket.on("sendAtk", function(data) {
 		console.log("push");
+        console.log(data);
 		//socket.join("connect");
 		//socket.emit("down", 1);
         //socket.to("index").broadcast.emit("down", 1);

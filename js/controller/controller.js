@@ -4,6 +4,9 @@ var socket = io.connect(location.origin);
 // 加速度の閾値
 var accleThresh = 15.0;
 
+//name string
+var name = "Taro";
+
 $(function(){
 	$("#main").click(function(){
 		//send server
@@ -42,7 +45,7 @@ window.addEventListener("devicemotion", function(event1){
 
     if (accelFlag(x) || acF){
         result2.innerHTML = "<div id='okBox'></div><br>";
-		    socket.emit("sendAtk", 1);
+		    socket.emit("sendAtk", name + "," +Math.random()*4);
     }else{
         result2.innerHTML = "<div id='badBox'></div><br>";
     }
