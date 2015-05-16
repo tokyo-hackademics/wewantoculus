@@ -1,11 +1,5 @@
 //connect OAOAAOAsocket
-var socket = io.connect(location.origin);
-
-// 加速度の閾値
-var accleThresh = 15.0;
-
-//name string
-var name = "Taro";
+// var socket = io.connect(location.origin);
 
 $(function(){
 	$("#main").click(function(){
@@ -36,6 +30,9 @@ window.addEventListener("devicemotion", function(event1){
 
     var result1 = document.getElementById("result1");
     var result2 = document.getElementById("result2");
+    var result3 = document.getElementById("result3");
+
+    var name = document.getElementById("id_box").value
 
     result1.innerHTML =
         "xyz："+ calcEval(x,y,z) +"<br>";
@@ -58,3 +55,4 @@ function delete_form(frm){
     frm.elements["id_btn"].style.display="none";
     frm.elements["id_box"].style.display="none";
 }
+OB

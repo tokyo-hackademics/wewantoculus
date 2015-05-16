@@ -6,21 +6,23 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<title>コントローラ</title>
 	<link rel="stylesheet" type="text/css" href="css/controller.css"/>
-  <script src="/socket.io/socket.io.js"></script>
+<!-- <script src="/socket.io/socket.io.js"></script> -->
 	<script src="libs/jquery-2.1.1.min.js"></script>
+	<script src="js/global.js"></script>
 	<script src="js/controller/controller.js"></script>
 </head>
 <body>
 
 <form action="#">
   <p>
-    <input type="text" name="id_box" value="" size="8" />
+    <input type="text" name="id_box" id="id_box" value="" size="8" />
     <input type="button" name="id_btn" value="display:none" onclick="delete_form(this.form)" />
   </p>
 </from>
 
 <div id="result1">None1</div>
 <div id="result2">None2</div>
+<div id="result3">None3</div>
 
 </body>
 </html>

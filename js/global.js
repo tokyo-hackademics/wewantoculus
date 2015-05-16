@@ -16,3 +16,6 @@ var ELEMENTS = {
 	C : 2,
 	O : 3,
 };
+
+//accele threshold
+var accleThresh = 15.0;
