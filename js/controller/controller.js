@@ -68,6 +68,13 @@ function putAccelPanel(x,y,z){
 
 }
 
+function stgCtr(){
+	if(stg == STAGE.INIT){
+	}
+	else{
+	}
+}
+
 window.addEventListener("devicemotion", function(event){
     var x = event.acceleration.x;
     var y = event.acceleration.y;
