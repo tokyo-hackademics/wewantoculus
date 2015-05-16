@@ -85,7 +85,7 @@ io.sockets.on("connection", function(socket) {
 		//socket.join("connect");
 		//socket.emit("down", 1);
         //socket.to("index").broadcast.emit("down", 1);
-        socket.broadcast.emit("down", 1);
+        socket.broadcast.emit("userAtk", 1);
     });
 });
 

@@ -4,11 +4,9 @@
 	<meta charset="UTF-8">
 	<title>メイン画面</title>
 	<script src="/libs/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="libs/three.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/global.js"></script>
-	<script src="js/index/cube.js"></script>
-	<script src="/js/index/index.js"></script>
+	<script src="/js/index/elements.js"></script>
 	<script src="/js/index/monster.js"></script>
 	<script src="/js/index/user.js"></script>
 	<script src="/js/index/timer.js"></script>
@@ -16,28 +14,8 @@
 </head>
 <body>
 <script>
-	//create scene
-	var scene = new THREE.Scene();
-	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-	var renderer = new THREE.WebGLRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.body.appendChild( renderer.domElement );
-	
-	//create objects
-	var cube = new Cube();
-	
-	//renderer
-	function render() {
-		//calling game controller
-		stgCtr();
-		//GetQueryString();
-		requestAnimationFrame(render);
-		cube.render();
-		renderer.render(scene, camera);
-	}
-	
-	render();
-	</script>
+	setInterval("stgCtr()",50);
+</script>
 <div id="main">
 あああああああああ
 </div>
