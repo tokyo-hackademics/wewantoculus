@@ -80,7 +80,7 @@ var io = socketIO.listen(server);
 //watching server
 io.sockets.on("connection", function(socket) {
 	//tap event
-	socket.on("tapDown", function(data) {
+	socket.on("sendAtk", function(data) {
 		console.log("push");
 		//socket.join("connect");
 		//socket.emit("down", 1);

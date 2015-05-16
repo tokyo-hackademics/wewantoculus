@@ -41,8 +41,8 @@ window.addEventListener("devicemotion", function(event1){
         calcEval(x,y,z);
 
     if (accelFlag(x) || acF){
-        acF = true;
         result2.innerHTML = "<div id='okBox'></div><br>";
+		    socket.emit("sendAtk", 1);
     }else{
         result2.innerHTML = "<div id='badBox'></div><br>";
     }
