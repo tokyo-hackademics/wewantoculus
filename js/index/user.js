@@ -1,5 +1,4 @@
 function userAtk(){
-	//monHP -= userAtk;
-	console.log(userHP);
+	monHP -= monHP - userAtk;
 	$("#monHP").html(monHP);
 }
