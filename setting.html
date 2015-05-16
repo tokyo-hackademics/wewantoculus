@@ -5,19 +5,18 @@
 	<meta http-equiv="Content-Style-Type" content="text/css" />
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<title>設定</title>
-<!--	<link rel="stylesheet" type="text/css" href="css/controller.css"/> -->
 	<script src="libs/jquery-2.1.1.min.js"></script>
 	<script src="js/global.js"></script>
   <script src="js/controller/setting.js"></script>
 </head>
 <body>
 
-<form action="#">
+<form action="controller.html" method="POST">
     名前：<input type="text" name="name_box" id="name_box" value="" size="20" /></br>
 
     武器選択：
-    <input type="radio" name="weapon" value="weapon1"> 剣</input>
-    <input type="radio" name="weapon" value="weapon2"> 弓</input></br>
+    <input type="radio" name="weapon" value="1"> 剣</input>
+    <input type="radio" name="weapon" value="2"> 弓</input></br>
 
     <input type="button" value="決定" onclick="send_form(this.form)" />
 

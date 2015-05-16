@@ -70,13 +70,8 @@ function putAccelPanel(x,y,z){
 
 function stgCtr(){
 	if(stg == STAGE.INIT){
-		//shake iphone!
- 		if(shake == shakeNum)stg = STAGE.FIRST;
 	}
-	else if(stg == STAGE.FIRST){
-		firstStage();
-	} else if (stg == STAGE.SECOND){
-		console.log("secnod stage");
+	else{
 	}
 }
 
