@@ -41,6 +41,7 @@ function stgCtr(){
  		}
 	}
 	else if(stg == STAGE.FIRST){
+		appearFirstMon();
 		firstStage();
 	} else if (stg == STAGE.SECOND){
 		console.log("secnod stage");
