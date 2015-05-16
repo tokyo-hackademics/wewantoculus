@@ -31,7 +31,7 @@ window.onload = function(){
 		
 		console.log(s);
 		str = str + "い"
-		$("#main").html(str);
+		$("#str").html(str);
 	});
 };
 
