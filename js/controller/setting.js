@@ -6,5 +6,5 @@ function send_form(frm){
 //        "name:" + name + "</br>" +
 //        "weapon:" + weapon;
 
-    location.href='controller.html?name=' + name + '&weapon=' + weapon;
+    location.href='/controller.html?name=' + name + '&weapon=' + weapon;
 }

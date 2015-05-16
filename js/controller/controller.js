@@ -68,18 +68,6 @@ function putAccelPanel(x,y,z){
 
 }
 
-function stgCtr(){
-	if(stg == STAGE.INIT){
-		//shake iphone!
- 		if(shake == shakeNum)stg = STAGE.FIRST;
-	}
-	else if(stg == STAGE.FIRST){
-		firstStage();
-	} else if (stg == STAGE.SECOND){
-		console.log("secnod stage");
-	}
-}
-
 window.addEventListener("devicemotion", function(event){
     var x = event.acceleration.x;
     var y = event.acceleration.y;
@@ -100,7 +88,7 @@ window.addEventListener("devicemotion", function(event){
 
 window.onload = function (){
     // num of shake
-	  socket.on("shakeNum",function(data){
+	  socket.on("sNum",function(data){
 		    if(stg == STAGE.INIT){
             document.getElementById("shakeNum").innerHTML =
                 "shakeNum:" + data + "<br>";
