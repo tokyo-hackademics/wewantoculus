@@ -13,9 +13,21 @@ function appearFirstMon(){
 	$("#trg_slug").fadeIn("slow");
 }
 
+function disapearFirstMon(){
+	disappearTimer();
+	$("#ghost").fadeOut("slow");
+	$("#slug").fadeOut("slow");
+	$("#trg_ghost").fadeOut("slow");
+	$("#trg_slug").fadeOut("slow", function(){$("#trg_slug").hide();});	
+}
+
 //show timer
 function appearTimer(){
 	$("#timer").fadeIn("slow");
+}
+
+function disappearTimer(){
+	$("#timer").fadeOut("slow");
 }
 
 //show elements
@@ -42,6 +54,10 @@ function hideElements(){
 function showMonDmg(dmg){
 	$("#mondamage").html(dmg);
 	$('#mondamage').fadeIn(700,function(){$(this).fadeOut(1000)});
+}
+
+function showMonAtk(){
+	$('#eneata').fadeIn(400,function(){$(this).fadeOut(500)});
 }
 
 function reduceUserHP(hp){

@@ -9,6 +9,7 @@ var PHASE = {
 	USERATK : 1,
 	MONATK : 2,
 	CLEAR : 3,
+	FINISH : 4,
 };
 
 var stg = STAGE.INIT;
@@ -75,12 +76,16 @@ function firstStage() {
 		//user atack
 		userAtkTurn(dmg);
 		hideElements();
+		//show effects
+		if(returnWater()) effectWater();
+		if(returnBomb()) effectBomb();
 		//show damage
 		if(dmg!=0)showMonDmg(dmg);
 		phs = PHASE.MONATK;
 	} else if (phs == PHASE.MONATK){
 		var hp = mon1AtkTurn();
 		//animation reduce user hp
+		showMonAtk();
 		reduceUserHP(hp);
 		startTimer();
 		phs = PHASE.CHARGE;
@@ -89,7 +94,12 @@ function firstStage() {
 			phs = PHASE.CLEAR;
 		}
 	} else if (phs = PHASE.CLEAR){ //game clear
-			console.log("くりああああああああああああ");
+		disapearFirstMon();
+		$("#win").fadeIn("slow");
+		phs = PHASE.FINISH;
+		stg = STAGE.SECOND;
+	} else {
+
 	}
 	
 }

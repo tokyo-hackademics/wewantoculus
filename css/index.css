@@ -17,6 +17,15 @@ html, body{
 	width:6%;
 }*/
 
+
+#win{
+	position:fixed;
+	top:0px;
+	left:100px;
+	width:100%;
+	display: none;
+}
+
 #elementF{
 	position:fixed;
 	bottom:10px;
@@ -24,6 +33,14 @@ html, body{
 	width:84%;
 	height:100px;
 	background-color: transparent;
+}
+
+#eneata{
+	position:fixed;
+	top:50px;
+	left:400px;
+	width:50%;
+	display: none;
 }
 
 #mondamage{
