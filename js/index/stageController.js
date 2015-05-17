@@ -49,6 +49,7 @@ function stgCtr(){
 
       // Added fumi
       document.getElementById("sudBtlBGM").play();
+      //document.getElementById("sudBtlBGM").pause();
  		}
 	}
 	else if(stg == STAGE.FIRST){

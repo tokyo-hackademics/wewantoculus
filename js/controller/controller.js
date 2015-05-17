@@ -117,27 +117,27 @@ window.addEventListener("devicemotion", function(event){
 }, true);
 
 window.onload = function (){
-    // // num of shake
-	socket.on("sNum",function(data){
-	   if(stg == STAGE.SHK){
+    // num of shake
+	  socket.on("sNum",function(data){
+		    if(stg == STAGE.SHK){
             document.getElementById("shakeNum").innerHTML =
-           "shakeNum:" + data + "<br>";
+                "shakeNum:" + data + "<br>";
             //meter animation
-             var per = data/shakeNum*100;
-             $("#meterImg").animate({
-                 width: "100%",
-                 height: per+"%",
-                 bottom: 0,
-             }, 100 );
-		     }
-	 });
+            var per = data/shakeNum*100;
+            $("#meterImg").animate({
+                width: "100%",
+                height: per+"%",
+                bottom: 0,
+            }, 100 );
+		    }
+	  });
 
-    // // advance Flag
-	  // socket.on("advF",function(data){
-		//     if(stg == STAGE.SHK){
-    //         advStg();
-		//     }
-	  // });
+    // advance Flag
+	  socket.on("advF",function(data){
+		    if(stg == STAGE.SHK){
+            advStg();
+		    }
+	  });
 
     document.getElementById("WAIT").style.display="none";
     document.getElementById("SHK").style.display="none";
