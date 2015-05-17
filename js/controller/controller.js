@@ -170,8 +170,5 @@ window.onload = function (){
     // putAccelNum();
     // putAccelPanel();
 
-    // slider
-    slider = $('.bxslider').bxSlider();
-
     $("#WAIT").show();
 }
