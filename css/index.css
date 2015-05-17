@@ -10,6 +10,22 @@ html, body{
 	height:100%;
 }
 
+/*#test{
+	position:fixed;
+	bottom:10px;
+	left:400px;
+	width:6%;
+}*/
+
+#elementF{
+	position:fixed;
+	bottom:10px;
+	left:210px;
+	width:84%;
+	height:100px;
+	background-color: transparent;
+}
+
 /*shake display*/
 #prepare{
 	position:relative;

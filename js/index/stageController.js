@@ -28,6 +28,10 @@ window.onload = function (){
 		if(stg == STAGE.FIRST){
 			var array = data.split(",");
 			switchElement(array[1]);
+			//show elements
+			if (phs == PHASE.CHARGE){
+				showElements(array[1]);
+			}
 		}		
 	});
 }
@@ -40,7 +44,7 @@ function stgCtr(){
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
- 			startTimer();
+       		startTimer();
  			stg = STAGE.FIRST;
  		}
 	}
@@ -58,7 +62,7 @@ function firstStage() {
 		//time limit
 		if (numTimer()==-1){
 			stopTimer();
-			phs = PHASE.USERATK
+			phs = PHASE.USERATK;
 		}
 	} else if (phs == PHASE.USERATK){
 		console.log("user's atk!");

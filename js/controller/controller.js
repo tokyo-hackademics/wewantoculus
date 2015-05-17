@@ -43,7 +43,7 @@ function sordAcction(x){
             var elem = ELEMENTS.O;
             break;
         }
-
+            elem = 2;
 		    socket.emit("sendAtk", name + "," + elem);
     }
 }
