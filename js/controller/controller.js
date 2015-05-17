@@ -11,7 +11,7 @@ var STAGE = {
 var stg = STAGE.WAIT;
 var name = 'none';
 var sleepF = false;
-var sleepTime = 1000;
+var sleepTime = 200;
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))

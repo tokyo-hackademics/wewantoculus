@@ -58,6 +58,11 @@ function showElements(element){
 		objBody.appendChild(cBall);*/
 }
 
+function showMonDmg(dmg){
+	$("#mondamage").html(dmg);
+	$("#mondamage").fadeIn("fast");
+}
+
 function reduceUserHP(hp){
 	var per = hp/def_userHP*28;
             $("#life").animate({

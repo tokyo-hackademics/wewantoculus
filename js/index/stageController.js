@@ -40,7 +40,7 @@ function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
 		//debug
-		//shake = 24;
+		shake = 24;
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
@@ -66,7 +66,9 @@ function firstStage() {
 		}
 	} else if (phs == PHASE.USERATK){
 		console.log("user's atk!");
-		userAtkTurn();
+		var dmg = returnDamage();
+		userAtkTurn(dmg);
+		showMonDmg(dmg);
 		phs = PHASE.MONATK;
 	} else if (phs == PHASE.MONATK){
 		var hp = mon1AtkTurn();

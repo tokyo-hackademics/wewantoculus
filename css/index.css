@@ -26,6 +26,18 @@ html, body{
 	background-color: transparent;
 }
 
+#mondamage{
+	position:fixed;
+	font-size: 250px;
+	text-align: center;
+	top:200px;
+	left:410px;
+	width:50%;
+	height:30%;
+	color:red;
+	background-color: transparent;
+}
+
 /*shake display*/
 #prepare{
 	position:relative;
