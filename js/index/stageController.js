@@ -44,7 +44,7 @@ function stgCtr(){
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
- 			startTimer();
+       		startTimer();
  			stg = STAGE.FIRST;
  		}
 	}
