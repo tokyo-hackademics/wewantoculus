@@ -13,16 +13,38 @@
 </head>
 <body>
 
-<!--ここからやのコード-->
-<div id="meter">
-<img src="images/controller/meter.jpg" id="meterImg">
+<!-- 戦闘開始ボタン -->
+<div id="WAIT">
+  <div id="name"></div>
+  <div id="battle_btn">
+    <button type="button" onClick="advStg()"><div style="width:300px;heifht:300px;background:#ced;border:1px solid #a7e;">戦闘開始</div></button>
+  </div>
 </div>
-<!--ここまで-->
 
-<div id="accelPanel"></div>
-<div id="accelNum"></div>
-<div id="name"></div>
-<div id="shakeNum"></div>
+<!-- 振るフェーズ -->
+<div id="SHK">
+  <div id="meter">
+    <img src="images/controller/meter.jpg" id="meterImg">
+  </div>
+  <div id="shakeNum"></div>
+  <div id="accelPanel"></div>
+  <div id="accelNum"></div>
+</div>
+
+<!-- 武器フェーズ -->
+<div id="WEP">
+  <form id="elemRadio">
+    Please select element :
+    <input type="radio" name="elem" value="H"></input>
+    <input type="radio" name="elem" value="S"></input>
+    <input type="radio" name="elem" value="C"></input>
+    <input type="radio" name="elem" value="O"></input>
+  </form>
+</div>
+
+<!-- 結果フェーズ -->
+<div id="RST">
+</div>
 
 </body>
 </html>

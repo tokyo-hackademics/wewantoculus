@@ -2,14 +2,14 @@
 var socket = io.connect(location.origin);
 
 var STAGE = {
-	INIT : 0,
-	FIRST : 1,
-	SECOND : 2,
+    WAIT : 0,
+    SHK : 1,
+    WEP : 2,
+    RST : 3,
 };
 
-var stg = STAGE.INIT;
+var stg = STAGE.WAIT;
 var name = 'none';
-
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
@@ -26,7 +26,23 @@ function accelFlag(x){
 
 function sordAcction(x){
     if (accelFlag(x)){
-		    socket.emit("sendAtk", name + "," +Math.random()*4);
+        var elemVal = document.getElementById("elemRadio").value;
+        switch (elemVal){
+        case 'H':
+            var elem = ELEMENTS.H;
+            break;
+        case 'S':
+            var elem = ELEMENTS.S;
+            break;
+        case 'C':
+            var elem = ELEMENTS.C;
+            break;
+        case 'O':
+            var elem = ELEMENTS.O;
+            break;
+        }
+
+		    socket.emit("sendAtk", name + "," + elem);
     }
 }
 
@@ -68,12 +84,37 @@ function putAccelPanel(x,y,z){
 
 }
 
-/*function stgCtr(){
-	if(stg == STAGE.INIT){
-	}
-	else{
-	}
-}*/
+function advStg(){
+		if(stg == STAGE.WAIT){
+        stg = STAGE.SHK
+        document.getElementById("WAIT").style.display="none";
+        document.getElementById("SHK").style.display="block";
+		}else if(stg == STAGE.SHK){
+        stg = STAGE.WEP
+        document.getElementById("SHK").style.display="none";
+        document.getElementById("WEP").style.display="block";
+    }else if(stg == STAGE.WEP){
+        stg = STAGE.SHK
+        document.getElementById("WEP").style.display="none";
+        document.getElementById("RST").style.display="block";
+    }else if(stg == STAGE.RST){
+        stg = STAGE.SHK
+        document.getElementById("RST").style.display="none";
+        document.getElementById("SHK").style.display="block";
+    }
+}
+
+// function stgCtr(){
+// 		if(stg == STAGE.WAIT){
+//         document.getElementById("WAIT").style.display="block";
+// 		}else if(stg == STAGE.SHK) {
+//         document.getElementById("SHK").style.display="block";
+// 		}else if(stg == STAGE.WEP) {
+//         document.getElementById("WEP").style.display="block";
+//     }else if(stg == STAGE.RST) {
+//         document.getElementById("RST").style.display="block";
+//     }
+// }
 
 window.addEventListener("devicemotion", function(event){
     var x = event.acceleration.x;
@@ -84,10 +125,11 @@ window.addEventListener("devicemotion", function(event){
     putAccelNum(x,y,z);
     putAccelPanel(x,y,z);
 
-    // Acction
-		if(stg == STAGE.INIT){
+    // Action
+		if(stg == STAGE.WAIT){
+		}else if(stg == STAGE.SHK) {
         shakeAcction(x);
-		}else{
+		}else if(stg == STAGE.WEP) {
         sordAcction(x);
     }
 
@@ -96,11 +138,9 @@ window.addEventListener("devicemotion", function(event){
 window.onload = function (){
     // num of shake
 	  socket.on("sNum",function(data){
-		    //if(stg == STAGE.INIT){
+		    if(stg == STAGE.SHK){
             document.getElementById("shakeNum").innerHTML =
                 "shakeNum:" + data + "<br>";
-		    //}
-            /**ここからやのコード**/
             //meter animation
             var per = data/shakeNum*100;
             $("#meterImg").animate({
@@ -108,8 +148,20 @@ window.onload = function (){
                 height: per+"%",
                 bottom: 0,
             }, 100 );
-            /**ここまで**/   
+		    }
 	  });
+
+    // advance Flag
+	  socket.on("advF",function(data){
+		    if(stg == STAGE.SHK){
+            advStg();
+		    }
+	  });
+
+    document.getElementById("WAIT").style.display="none";
+    document.getElementById("SHK").style.display="none";
+    document.getElementById("WEP").style.display="none";
+    document.getElementById("RST").style.display="none";
 
     // load Get data
     loadGet();
@@ -121,6 +173,6 @@ window.onload = function (){
     putAccelNum();
     putAccelPanel();
 
-    // stage controller
-	  setInterval("stgCtr()",50);
+    // // stage controller
+	  // setInterval("stgCtr()",50);
 }
