@@ -1,6 +1,6 @@
 //monster settings
-var mon1HP = 100;
-var mon1Atk = 10;
+var mon1HP = 10;
+var mon1Atk = 5;
 
 //user settings
 var def_userHP = 100;

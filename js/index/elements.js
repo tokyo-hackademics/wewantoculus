@@ -73,6 +73,16 @@ function calcDamage(){
 	return dmg;
 }
 
+function returnWater(){
+	if(hho>0) return true;
+	else return false;
+}
+
+function returnBomb(){
+	if(hhsoooo>0) return true;
+	else return false;
+}
+
 //init elements
 function initElements(){
 	h = 0;
