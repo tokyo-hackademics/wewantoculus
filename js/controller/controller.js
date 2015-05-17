@@ -10,6 +10,8 @@ var STAGE = {
 
 var stg = STAGE.WAIT;
 var name = 'none';
+var sleepF = false;
+var sleepTime = 1000;
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
@@ -104,18 +106,6 @@ function advStg(){
     }
 }
 
-// function stgCtr(){
-// 		if(stg == STAGE.WAIT){
-//         document.getElementById("WAIT").style.display="block";
-// 		}else if(stg == STAGE.SHK) {
-//         document.getElementById("SHK").style.display="block";
-// 		}else if(stg == STAGE.WEP) {
-//         document.getElementById("WEP").style.display="block";
-//     }else if(stg == STAGE.RST) {
-//         document.getElementById("RST").style.display="block";
-//     }
-// }
-
 window.addEventListener("devicemotion", function(event){
     var x = event.acceleration.x;
     var y = event.acceleration.y;
@@ -129,8 +119,13 @@ window.addEventListener("devicemotion", function(event){
 		if(stg == STAGE.WAIT){
 		}else if(stg == STAGE.SHK) {
         shakeAcction(x);
-		}else if(stg == STAGE.WEP) {
+		}else if(stg == STAGE.WEP && (! sleepF) ) {
         sordAcction(x);
+        sleepF = true;
+        var sleepID = setInterval(function() {
+            sleepF = false;
+            clearInterval(sleepID);
+        }, sleepTime);
     }
 
 }, true);
