@@ -32,7 +32,7 @@ window.onload = function (){
 			if (phs == PHASE.CHARGE){
 				showElements(array[1]);
 			}
-		}		
+		}
 	});
 }
 
@@ -46,6 +46,9 @@ function stgCtr(){
  			delPrepareDisplay();
        		startTimer();
  			stg = STAGE.FIRST;
+
+      // Added fumi
+      document.getElementById("sudBtlBGM").play();
  		}
 	}
 	else if(stg == STAGE.FIRST){
