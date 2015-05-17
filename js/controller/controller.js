@@ -1,5 +1,5 @@
 //connect soket
-//var socket = io.connect(location.origin);
+var socket = io.connect(location.origin);
 
 var STAGE = {
     WAIT : 0,
@@ -11,7 +11,7 @@ var STAGE = {
 var stg = STAGE.WAIT;
 var name = 'none';
 var sleepF = false;
-var sleepTime = 1000;
+var sleepTime = 150;
 var slider = "";
 
 function calcMerge(x,y){
@@ -118,19 +118,19 @@ window.addEventListener("devicemotion", function(event){
 
 window.onload = function (){
     // // num of shake
-	  // socket.on("sNum",function(data){
-		//     if(stg == STAGE.SHK){
-    //         document.getElementById("shakeNum").innerHTML =
-    //             "shakeNum:" + data + "<br>";
-    //         //meter animation
-    //         var per = data/shakeNum*100;
-    //         $("#meterImg").animate({
-    //             width: "100%",
-    //             height: per+"%",
-    //             bottom: 0,
-    //         }, 100 );
-		//     }
-	  // });
+	socket.on("sNum",function(data){
+	   if(stg == STAGE.SHK){
+            document.getElementById("shakeNum").innerHTML =
+           "shakeNum:" + data + "<br>";
+            //meter animation
+             var per = data/shakeNum*100;
+             $("#meterImg").animate({
+                 width: "100%",
+                 height: per+"%",
+                 bottom: 0,
+             }, 100 );
+		     }
+	 });
 
     // // advance Flag
 	  // socket.on("advF",function(data){

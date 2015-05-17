@@ -100,7 +100,7 @@ var io = socketIO.listen(server);
 io.sockets.on("connection", function(socket) {
     //shaking smartphone
     socket.on("shakeTrue", function(data) {
-        //console.log("shake:" + data);
+        console.log("shake:" + data);
         socket.broadcast.emit("shake", data);
     });
     //send shaking number
