@@ -14,7 +14,7 @@ var hhsoooo = 0;
 
 
 function switchElement(element){
-	console.log(parseInt(element));
+	console.log(element);
 	//count elements
 	switch(parseInt(element)){
 		case ELEMENTS.H:

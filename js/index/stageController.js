@@ -28,6 +28,10 @@ window.onload = function (){
 		if(stg == STAGE.FIRST){
 			var array = data.split(",");
 			switchElement(array[1]);
+			//show elements
+			if (phs == PHASE.CHARGE){
+				showElements(array[1]);
+			}
 		}		
 	});
 }
@@ -36,7 +40,7 @@ function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
 		//debug
-		//shake = 24;
+		shake = 24;
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
@@ -55,10 +59,12 @@ function stgCtr(){
 //first stage
 function firstStage() {
 	if (phs == PHASE.CHARGE){
+		//show elements
+
 		//time limit
 		if (numTimer()==-1){
 			stopTimer();
-			phs = PHASE.USERATK
+			phs = PHASE.USERATK;
 		}
 	} else if (phs == PHASE.USERATK){
 		console.log("user's atk!");
