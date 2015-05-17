@@ -30,22 +30,6 @@ function accelFlag(x){
 function sordAcction(x){
     if (accelFlag(x)){
         var elem = slider.getCurrentSlide();
-        // var elemVal = document.getElementById("elemRadio").value;
-        // switch (elemVal){
-        // case 'H':
-        //     var elem = ELEMENTS.H;
-        //     break;
-        // case 'S':
-        //     var elem = ELEMENTS.S;
-        //     break;
-        // case 'C':
-        //     var elem = ELEMENTS.C;
-        //     break;
-        // case 'O':
-        //     var elem = ELEMENTS.O;
-        //     break;
-        // }
-
 		    socket.emit("sendAtk", name + "," + elem);
     }
 }
