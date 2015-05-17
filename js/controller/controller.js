@@ -173,6 +173,7 @@ window.onload = function (){
     putAccelNum();
     putAccelPanel();
 
+    $("#WAIT").show();
     // // stage controller
-	  // setInterval("stgCtr()",50);
+	//setInterval("stgCtr()",50);
 }
