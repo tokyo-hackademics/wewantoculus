@@ -97,6 +97,5 @@ function returnDamage(){
 	var dmg;
 	createCompound();
 	dmg = calcDamage();
-	initElements();
 	return dmg;
 }

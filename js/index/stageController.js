@@ -42,7 +42,7 @@ function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
 		//debug
-		shake = 24;
+		//shake = 24;
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
@@ -62,6 +62,7 @@ function stgCtr(){
 	}
 }
 
+var sleepF = false;
 //first stage
 function firstStage() {
 	if (phs == PHASE.CHARGE){
@@ -71,7 +72,10 @@ function firstStage() {
 			phs = PHASE.USERATK;
 		}
 	} else if (phs == PHASE.USERATK){
-		console.log("user's atk!");
+		//sleep
+		if(! sleepF) {
+        	sleepF = true;
+        	console.log("user's atk!");
 		var dmg = returnDamage();
 		//user atack
 		userAtkTurn(dmg);
@@ -80,15 +84,21 @@ function firstStage() {
 		if(returnWater()) effectWater();
 		if(returnBomb()) effectBomb();
 		//show damage
-		if(dmg!=0)showMonDmg(dmg);
-		phs = PHASE.MONATK;
+		showMonDmg(dmg);
+		initElements();
+        	var sleepID = setInterval(function() {
+            	sleepF = false;
+            	phs = PHASE.MONATK;
+            	clearInterval(sleepID);
+        	}, 2500);
+    	}
 	} else if (phs == PHASE.MONATK){
-		var hp = mon1AtkTurn();
-		//animation reduce user hp
-		showMonAtk();
-		reduceUserHP(hp);
-		startTimer();
-		phs = PHASE.CHARGE;
+			var hp = mon1AtkTurn();
+			//animation reduce user hp
+			showMonAtk();
+			reduceUserHP(hp);
+			startTimer();
+			phs = PHASE.CHARGE;
 		//nock back monster
 		if(mon1HP<0){
 			phs = PHASE.CLEAR;
