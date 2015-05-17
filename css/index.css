@@ -38,6 +38,16 @@ html, body{
 	background-color: transparent;
 }
 
+/*effect*/
+#effect{
+	position: fixed;
+	top: 150px;
+	left: 230px;
+	width:80%;
+	height: 60%;
+	background-color: red;
+}
+
 /*shake display*/
 #prepare{
 	position:relative;

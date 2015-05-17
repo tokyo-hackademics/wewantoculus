@@ -7,7 +7,8 @@ var STAGE = {
 var PHASE = {
 	CHARGE : 0,
 	USERATK : 1,
-	MONATK : 2
+	MONATK : 2,
+	CLEAR : 3,
 };
 
 var stg = STAGE.INIT;
@@ -67,8 +68,11 @@ function firstStage() {
 	} else if (phs == PHASE.USERATK){
 		console.log("user's atk!");
 		var dmg = returnDamage();
+		//user atack
 		userAtkTurn(dmg);
-		showMonDmg(dmg);
+		hideElements();
+		//show damage
+		if(dmg!=0)showMonDmg(dmg);
 		phs = PHASE.MONATK;
 	} else if (phs == PHASE.MONATK){
 		var hp = mon1AtkTurn();
@@ -76,6 +80,12 @@ function firstStage() {
 		reduceUserHP(hp);
 		startTimer();
 		phs = PHASE.CHARGE;
+		//nock back monster
+		if(mon1HP<0){
+			phs = PHASE.CLEAR;
+		}
+	} else if (phs = PHASE.CLEAR){ //game clear
+			console.log("くりああああああああああああ");
 	}
 	
 }
