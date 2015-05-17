@@ -35,7 +35,8 @@ window.onload = function (){
 function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
- 		if(shake >= shakeNum){
+ 		if(shake >= shakeNum){//advance next stage
+ 			socket.emit("advFirst", true);
  			delPrepareDisplay();
  			stg = STAGE.FIRST;
  		}

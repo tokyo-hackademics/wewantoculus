@@ -100,13 +100,18 @@ var io = socketIO.listen(server);
 io.sockets.on("connection", function(socket) {
     //shaking smartphone
     socket.on("shakeTrue", function(data) {
-        console.log("shake:" + data);
+        //console.log("shake:" + data);
         socket.broadcast.emit("shake", data);
     });
     //send shaking number
     socket.on("shakeNum", function(data) {
         console.log("shake num:" + data);
         socket.broadcast.emit("sNum", data);
+    });
+    //send notification of advance first battle stage
+    socket.on("advFirst", function(data) {
+        console.log("First battle!");
+        socket.broadcast.emit("advF", data);
     });
 	//user atack event
 	socket.on("sendAtk", function(data) {
