@@ -12,6 +12,7 @@ var stg = STAGE.WAIT;
 var name = 'none';
 var sleepF = false;
 var sleepTime = 1000;
+var slider = "";
 
 function calcMerge(x,y){
     return Math.sqrt(Math.pow(x,2) + Math.pow(y,2))
@@ -28,22 +29,23 @@ function accelFlag(x){
 
 function sordAcction(x){
     if (accelFlag(x)){
-        var elemVal = document.getElementById("elemRadio").value;
-        switch (elemVal){
-        case 'H':
-            var elem = ELEMENTS.H;
-            break;
-        case 'S':
-            var elem = ELEMENTS.S;
-            break;
-        case 'C':
-            var elem = ELEMENTS.C;
-            break;
-        case 'O':
-            var elem = ELEMENTS.O;
-            break;
-        }
-            elem = 2;
+        var elem = slider.getCurrentSlide();
+        // var elemVal = document.getElementById("elemRadio").value;
+        // switch (elemVal){
+        // case 'H':
+        //     var elem = ELEMENTS.H;
+        //     break;
+        // case 'S':
+        //     var elem = ELEMENTS.S;
+        //     break;
+        // case 'C':
+        //     var elem = ELEMENTS.C;
+        //     break;
+        // case 'O':
+        //     var elem = ELEMENTS.O;
+        //     break;
+        // }
+
 		    socket.emit("sendAtk", name + "," + elem);
     }
 }
@@ -164,11 +166,12 @@ window.onload = function (){
     // // put user name for Debug
     // document.getElementById("name").innerHTML = "Name:" + name;
 
-    // set Accel Num and Panel for Debug
-    putAccelNum();
-    putAccelPanel();
+    // // set Accel Num and Panel for Debug
+    // putAccelNum();
+    // putAccelPanel();
+
+    // slider
+    slider = $('.bxslider').bxSlider();
 
     $("#WAIT").show();
-    // // stage controller
-	  //setInterval("stgCtr()",50);
 }
