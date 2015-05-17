@@ -35,9 +35,12 @@ window.onload = function (){
 function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
+		//debug
+		//shake = 24;
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
+ 			startTimer();
  			stg = STAGE.FIRST;
  		}
 	}
@@ -53,7 +56,7 @@ function stgCtr(){
 function firstStage() {
 	if (phs == PHASE.CHARGE){
 		//time limit
-		if (numTimer()==0){
+		if (numTimer()==-1){
 			stopTimer();
 			phs = PHASE.USERATK
 		}
@@ -62,7 +65,9 @@ function firstStage() {
 		userAtkTurn();
 		phs = PHASE.MONATK;
 	} else if (phs == PHASE.MONATK){
-		mon1AtkTurn();
+		var hp = mon1AtkTurn();
+		//animation reduce user hp
+		reduceUserHP(hp);
 		startTimer();
 		phs = PHASE.CHARGE;
 	}

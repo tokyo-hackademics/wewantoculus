@@ -8,6 +8,7 @@
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="/js/global.js"></script>
 	<script src="/js/index/displayanm.js"></script>
+	<script src="/js/index/effectanm.js"></script>
 	<script src="/js/index/elements.js"></script>
 	<script src="/js/index/monster.js"></script>
 	<script src="/js/index/user.js"></script>
@@ -19,6 +20,8 @@
 	setInterval("stgCtr()",50);
 </script>
 <div id="main">
+	<!--background-->
+	<img src="images/index/01.jpg" id="stage1" />
 	<!--first monster-->
 	<img src="images/index/ghost.png" id="ghost" />
 	<img src="images/index/slug.png" id="slug" />
@@ -26,16 +29,16 @@
 	<img src="images/index/target.png" id="trg_slug" />
 	<!--<div id="order">
 	</div>order-->
-	<div id="shake">
-	</div><!--shake-->
+	<div id="timer"></div><!--timer-->
+	<!--lifegage-->
+	<div id="lifeback"></div>
+	<img src="images/index/lifegage_bg.png" id="life" />
+	<img src="images/index/lifegage.png" id="lifeframe" />
+	<div id="shake"></div><!--shake-->
 </div><!--main-->
-
 <h1 id="prepare">戦闘意欲を上げよ！</h1>
 <div id="str">
 あああああああああ
-</div>
-<div id="timer">
-5
 </div>
 <div id="monHP">
 100

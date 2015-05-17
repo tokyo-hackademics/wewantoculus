@@ -1,9 +1,10 @@
 //monster settings
 var mon1HP = 100;
-var mon1Atk = 5;
+var mon1Atk = 10;
 
 //user settings
-var userHP = 100;
+var def_userHP = 100;
+var userHP = def_userHP;
 var userAtk = 10;
 
 //timer
