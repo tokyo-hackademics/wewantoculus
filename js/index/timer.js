@@ -1,8 +1,6 @@
-var timeStart = 0;
+//var timeStart = 0;
 var time = timeLimit;
 var timer;
-
-startTimer();
 
 function startTimer(){
 	timer = setInterval("atkTimer()",1000);
@@ -16,7 +14,7 @@ function stopTimer(){
 function atkTimer(){
 	$("#timer").html(time);
 	time -= 1;
-	if(time<0){
+	if(time<-1){
 		//next turn
 		time = 0;
 	}
