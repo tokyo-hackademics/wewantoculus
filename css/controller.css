@@ -26,6 +26,23 @@ html, body{
 }
 /**ここまで**/
 
+#WAIT{
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+
+#battleBtn{
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+
+#elemSlider{
+    position:fixed;
+    width:100%;
+    height:100%;
+}
 
 #redBox{
 	margin: auto auto;

@@ -1,4 +1,4 @@
-<!DOCTYPEOA HTML>
+<!DOCTYAPEOA HTML>
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
@@ -6,19 +6,25 @@
 	<meta http-equiv="Content-Script-Type" content="text/javascript" />
 	<title>コントローラ</title>
 	<link rel="stylesheet" type="text/css" href="css/controller.css"/>
- 	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="libs/jquery.bxslider.css"/>
+ 	<!--<script src="/socket.io/socket.io.js"></script>-->
 	<script src="libs/jquery-2.1.1.min.js"></script>
+	<script src="libs/jquery.bxslider.min.js"></script>
 	<script src="js/global.js"></script>
 	<script src="js/controller/controller.js"></script>
+	<script src="js/controller/weapon.js"></script>
 </head>
 <body>
 
 <!-- 戦闘開始ボタン -->
 <div id="WAIT">
-  <div id="name"></div>
-  <div id="battle_btn">
-    <button type="button" onClick="advStg()"><div style="width:300px;heifht:300px;background:#ced;border:1px solid #a7e;">戦闘開始</div></button>
-  </div>
+  <ul id="elemSlider" class="bxslider">
+    <li><img src="images/controller/elem_h_green.jpg" /></li>
+    <li><img src="images/controller/elem_h_green.jpg" /></li>
+    <li><img src="images/controller/elem_h_green.jpg" /></li>
+  </ul>
+  <!-- <img id="battleBtn" src='images/controller/battle_start_off.jpg' onClick="advStg();"></img> -->
+  <!-- </div> -->
 </div>
 
 <!-- 振るフェーズ -->

@@ -1,5 +1,5 @@
 //connect soket
-var socket = io.connect(location.origin);
+//var socket = io.connect(location.origin);
 
 var STAGE = {
     WAIT : 0,
@@ -136,27 +136,27 @@ window.addEventListener("devicemotion", function(event){
 }, true);
 
 window.onload = function (){
-    // num of shake
-	  socket.on("sNum",function(data){
-		    if(stg == STAGE.SHK){
-            document.getElementById("shakeNum").innerHTML =
-                "shakeNum:" + data + "<br>";
-            //meter animation
-            var per = data/shakeNum*100;
-            $("#meterImg").animate({
-                width: "100%",
-                height: per+"%",
-                bottom: 0,
-            }, 100 );
-		    }
-	  });
+    // // num of shake
+	  // socket.on("sNum",function(data){
+		//     if(stg == STAGE.SHK){
+    //         document.getElementById("shakeNum").innerHTML =
+    //             "shakeNum:" + data + "<br>";
+    //         //meter animation
+    //         var per = data/shakeNum*100;
+    //         $("#meterImg").animate({
+    //             width: "100%",
+    //             height: per+"%",
+    //             bottom: 0,
+    //         }, 100 );
+		//     }
+	  // });
 
-    // advance Flag
-	  socket.on("advF",function(data){
-		    if(stg == STAGE.SHK){
-            advStg();
-		    }
-	  });
+    // // advance Flag
+	  // socket.on("advF",function(data){
+		//     if(stg == STAGE.SHK){
+    //         advStg();
+		//     }
+	  // });
 
     document.getElementById("WAIT").style.display="none";
     document.getElementById("SHK").style.display="none";
@@ -166,8 +166,8 @@ window.onload = function (){
     // load Get data
     loadGet();
 
-    // put user name for Debug
-    document.getElementById("name").innerHTML = "Name:" + name;
+    // // put user name for Debug
+    // document.getElementById("name").innerHTML = "Name:" + name;
 
     // set Accel Num and Panel for Debug
     putAccelNum();
@@ -175,5 +175,5 @@ window.onload = function (){
 
     $("#WAIT").show();
     // // stage controller
-	//setInterval("stgCtr()",50);
+	  //setInterval("stgCtr()",50);
 }
