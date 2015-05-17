@@ -41,7 +41,7 @@ function sordAcction(x){
             var elem = ELEMENTS.O;
             break;
         }
-            elem = 0;
+            elem = 2;
 		    socket.emit("sendAtk", name + "," + elem);
     }
 }

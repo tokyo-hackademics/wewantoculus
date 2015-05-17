@@ -40,7 +40,7 @@ function stgCtr(){
 	if(stg == STAGE.INIT){
 		//shake iphone!
 		//debug
-		shake = 24;
+		//shake = 24;
  		if(shake >= shakeNum){//advance next stage
  			socket.emit("advFirst", true);
  			delPrepareDisplay();
@@ -59,8 +59,6 @@ function stgCtr(){
 //first stage
 function firstStage() {
 	if (phs == PHASE.CHARGE){
-		//show elements
-
 		//time limit
 		if (numTimer()==-1){
 			stopTimer();

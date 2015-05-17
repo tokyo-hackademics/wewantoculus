@@ -24,11 +24,11 @@ function showElements(element){
 	if(element==ELEMENTS.H){
 		ehtml = "<img src='images/index/bh.png' height='100%'/>";	
 	} else if(element==ELEMENTS.S){
-		ehtml = "<img src='images/index/bs.png' height='100%'/>";	
+		ehtml = "<img src='images/index/gs.png' height='100%'/>";	
 	} else if(element==ELEMENTS.C){
-		ehtml = "<img src='images/index/bc.png' height='100%'/>";	
+		ehtml = "<img src='images/index/rc.png' height='100%'/>";	
 	} else if(element==ELEMENTS.O){
-		ehtml = "<img src='images/index/bo.png' height='100%'/>";	
+		ehtml = "<img src='images/index/yo.png' height='100%'/>";	
 	}
 	
 
