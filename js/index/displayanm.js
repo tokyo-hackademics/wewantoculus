@@ -52,12 +52,27 @@ function hideElements(){
 }
 
 function showMonDmg(dmg){
-	$("#mondamage").html(dmg);
+	if(dmg!=0)$("#mondamage").html(dmg);
+	else $("#mondamage").html("MISS!");
 	$('#mondamage').fadeIn(700,function(){$(this).fadeOut(1000)});
 }
 
+var demoTimeout;
 function showMonAtk(){
+	$('#stage1').jrumble({
+        x: 2,
+        y: 2,
+        rotation: 1
+    });
+    //$("#stage1").trigger('startRumble');
+
+	$this = $("#stage1");
+	clearTimeout(demoTimeout);
+	$this.trigger('startRumble');
+	demoTimeout = setTimeout(function(){$this.trigger('stopRumble');}, 1000);
+
 	$('#eneata').fadeIn(400,function(){$(this).fadeOut(500)});
+	
 }
 
 function reduceUserHP(hp){
