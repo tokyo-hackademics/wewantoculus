@@ -30,37 +30,13 @@ function showElements(element){
 	} else if(element==ELEMENTS.O){
 		ehtml = "<img src='images/index/yo.png' height='100%'/>";	
 	}
-	
 
 	$("#elementF").append(ehtml);
-	//動的にDiv要素を生成する
-		/*var cBall = document.createElement('div'); 
-		cBall.style.position = "relative";
-
-		//10～269の乱数を発生させる
-		//var RandLeft = 10 + Math.random()*260;
-		//var RandTop = 10 + Math.random()*260;
-		var RandLeft = 0;
-		var RandTop = 0;
-
-		//ボールの初期表示位置
-		cBall.style.left = RandLeft ;
-		cBall.style.top = RandTop ;
-
-		//ボールのイメージ画像を読み込む
-		var BallImg = document.createElement('img'); 
-		BallImg.src = "images/index/bh.png"; 
-
-		//Divにイメージを組み込む
-		cBall.appendChild(BallImg);
-		//ゲーム画面にボールレイヤ（Div)を組み込む
-		var objBody = $("#elementF").parent("div");
-		objBody.appendChild(cBall);*/
 }
 
 function showMonDmg(dmg){
 	$("#mondamage").html(dmg);
-	$("#mondamage").fadeIn("fast");
+	$('#mondamage').fadeIn(700,function(){$(this).fadeOut(1000)});
 }
 
 function reduceUserHP(hp){
