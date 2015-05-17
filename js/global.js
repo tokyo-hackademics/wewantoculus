@@ -1,5 +1,5 @@
 //monster settings
-var mon1HP = 10;
+var mon1HP = 80;
 var mon1Atk = 5;
 
 //user settings
@@ -11,7 +11,7 @@ var userAtk = 10;
 var timeLimit = 5;
 
 //controller
-var shakeNum = 20;
+var shakeNum = 100;
 
 //elements
 var ELEMENTS = {

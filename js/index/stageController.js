@@ -49,9 +49,13 @@ function stgCtr(){
        		startTimer();
  			stg = STAGE.FIRST;
 
-      // Added fumi
-      document.getElementById("sudBtlBGM").play();
-      //document.getElementById("sudBtlBGM").pause();
+     	 // Added fumi
+     	 //var audio = new Audio();
+		 //audio.src = '../../sounds/BGM165-141031-taigunnnogekitotsu-wav.wav';
+		 //audio.play();
+
+     	//document.getElementById("#sudBtlBGM").play();
+     	 //document.getElementById("sudBtlBGM").pause();
  		}
 	}
 	else if(stg == STAGE.FIRST){
